@@ -15,6 +15,8 @@ export function validateFixture(value, source) {
   const memories = new Set();
   for (const memory of value.memories) {
     text(memory.id, `${source}: memory id`); text(memory.title, `${memory.id}: title`); text(memory.content, `${memory.id}: content`);
+    if (memory.title.trim().length < 10 || memory.title.trim().length > 100) throw new Error(`${memory.id}: title must be 10-100 characters`);
+    if (memory.content.trim().length < 50 || memory.content.trim().length > 5000) throw new Error(`${memory.id}: content must be 50-5000 characters`);
     if (memories.has(memory.id)) throw new Error(`${source}: duplicate memory ${memory.id}`);
     memories.add(memory.id);
     if (memory.tags !== undefined && (!Array.isArray(memory.tags) || memory.tags.some(tag => typeof tag !== 'string'))) throw new Error(`${memory.id}: invalid tags`);

@@ -8,7 +8,7 @@ import { loadFixture, validateFixture } from '../src/fixtures.js';
 const valid = {
   schemaVersion: 1,
   name: 'test',
-  memories: [{ id: 'mem-a', title: 'Response DTO policy', content: 'Return DTOs from public API endpoint handlers.' }],
+  memories: [{ id: 'mem-a', title: 'Response DTO policy', content: 'Return response DTOs from public API endpoint handlers to protect internal domain fields.' }],
   cases: [{ id: 'case-a', need: 'response-dto', variant: 'natural-language', query: 'What should endpoints return?', judgments: [{ memoryId: 'mem-a', relevance: 2 }] }],
 };
 
@@ -22,6 +22,15 @@ test('rejects dirty community cases', () => {
     { ...valid, cases: [{ ...valid.cases[0], judgments: [{ memoryId: 'mem-a', relevance: 3 }] }] },
     { ...valid, cases: [{ ...valid.cases[0], judgments: [{ memoryId: 'mem-a', relevance: 0 }] }] },
   ]) assert.throws(() => validateFixture(fixture, 'test'));
+});
+
+test('enforces memory store title and content limits before running', () => {
+  for (const memory of [
+    { ...valid.memories[0], title: 'short' },
+    { ...valid.memories[0], title: 'x'.repeat(101) },
+    { ...valid.memories[0], content: 'too short' },
+    { ...valid.memories[0], content: 'x'.repeat(5001) },
+  ]) assert.throws(() => validateFixture({ ...valid, memories: [memory] }, 'test'));
 });
 
 test('loads YAML from disk', () => {
