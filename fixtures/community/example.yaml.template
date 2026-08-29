@@ -1,0 +1,21 @@
+# Copy this file to fixtures/community/<short-topic>.yaml and replace the example.
+schemaVersion: 1
+name: example-community-case
+description: A minimal contribution showing one memory, query, and explicit distractor.
+memories:
+  - id: example-preferred-command
+    title: Use the safe preview command
+    content: Run tool deploy --dry-run before changing production resources.
+    tags: [deployment, command]
+  - id: example-distractor-command
+    title: Run the local development server
+    content: Run tool dev to start the local development environment.
+    tags: [development, command]
+cases:
+  - id: example-preview-natural
+    need: safe-deploy-preview
+    variant: natural-language
+    query: How can I inspect a deployment without changing anything?
+    judgments:
+      - { memoryId: example-preferred-command, relevance: 2 }
+      - { memoryId: example-distractor-command, relevance: 0 }
