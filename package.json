@@ -1,0 +1,20 @@
+{
+  "name": "agent-memory-bench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Community-maintained black-box benchmark for ai-devkit memory search",
+  "scripts": {
+    "test": "node --test",
+    "validate": "node src/cli.js validate",
+    "bench": "node src/cli.js run",
+    "debug": "node src/cli.js debug"
+  },
+  "dependencies": {
+    "better-sqlite3": "12.11.1",
+    "yaml": "2.9.0"
+  },
+  "engines": {
+    "node": ">=20.20.0"
+  }
+}
