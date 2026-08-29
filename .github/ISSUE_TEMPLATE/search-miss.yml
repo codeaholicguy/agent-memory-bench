@@ -1,0 +1,35 @@
+name: Report a real-world search miss
+description: Suggest a sanitized query and memory for the community benchmark
+title: "[miss]: "
+labels: [search-miss]
+body:
+  - type: textarea
+    id: query
+    attributes:
+      label: Search query
+      description: Use the original wording when safe; remove private data.
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: Memory that should have been found
+      description: Provide a sanitized title and content.
+    validations: { required: true }
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+      description: Empty results, wrong ranking, or sanitized distracting results.
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: ai-devkit version
+      placeholder: 0.56.0
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data safety
+      options:
+        - label: I removed secrets, personal data, customer data, and proprietary code.
+          required: true
