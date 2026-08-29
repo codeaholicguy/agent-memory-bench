@@ -3,7 +3,8 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadFixtures } from './fixtures.js';
-import { createFixtureProject } from './database.js';
+import { createFixtureProject } from './project.js';
+import { remapCases, seedMemories } from './seeding.js';
 import { installRelease, resolveDevBin } from './tool.js';
 import { runSuite } from './runner.js';
 import { printSummary, resultDocument } from './report.js';
@@ -32,13 +33,15 @@ async function main() {
   if (selectedCase && cases.length === 0) throw new Error(`Unknown case: ${selectedCase}`);
   if (query) cases = [{ id: 'ad-hoc', need: 'ad-hoc', variant: 'natural-language', query, judgments: [] }];
   if (command === 'debug' && !selectedCase && !query) throw new Error('debug requires --case or --query');
-  const project = createFixtureProject(fixture.memories);
+  const project = createFixtureProject();
   try {
+    const seeded = await seedMemories({ bin: tool.bin, projectDir: project.projectDir, memories: fixture.memories });
+    cases = remapCases(cases, seeded.idMap);
     const suite = await runSuite({ bin: tool.bin, projectDir: project.projectDir, cases, budgetMs: Number(option('--budget-ms') ?? 60000), onResult: has('--explain') ? run => {
       console.log(`\n${run.item.id}: ${run.item.query}`);
       console.log(JSON.stringify({ strategy: run.output.strategy ?? null, wallMs: run.wallMs, results: run.output.results }, null, 2));
     } : undefined });
-    const result = { ...suite, ...tool, fixtureRevision: 'core-v1' };
+    const result = { ...suite, ...tool, seedTimeMs: seeded.seedTimeMs, fixtureRevision: 'core-v1' };
     printSummary(result);
     if (option('--output')) {
       const output = resolve(option('--output')); mkdirSync(dirname(output), { recursive: true });

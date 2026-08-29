@@ -7,6 +7,7 @@ export function printSummary(result) {
   console.log(`hit@1 ${pct(m.hitAt1)} | hit@3 ${pct(m.hitAt3)} | hit@5 ${pct(m.hitAt5)}`);
   console.log(`zero results ${pct(m.zeroResultRate)} | irrelevant top-3 ${pct(m.irrelevantTop3Rate)} | judgment coverage ${pct(m.top3JudgmentCoverage)}`);
   console.log(`wall latency p50 ${ms(m.wallLatencyP50Ms)} | p95 ${ms(m.wallLatencyP95Ms)} | suite ${result.elapsedMs.toFixed(1)}ms`);
+  console.log(`seeded via memory store in ${result.seedTimeMs.toFixed(1)}ms`);
 }
 
 export function resultDocument(result) {
@@ -18,6 +19,7 @@ export function resultDocument(result) {
     fixtureRevision: result.fixtureRevision,
     generatedAt: new Date().toISOString(),
     metrics: result.metrics,
+    seedTimeMs: result.seedTimeMs,
     elapsedMs: result.elapsedMs,
     cases: result.runs.map(run => ({
       id: run.item.id, need: run.item.need, variant: run.item.variant,
