@@ -16,8 +16,8 @@
         "required": ["id", "title", "content"],
         "properties": {
           "id": { "type": "string", "minLength": 1 },
-          "title": { "type": "string", "minLength": 1 },
-          "content": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 10, "maxLength": 100 },
+          "content": { "type": "string", "minLength": 50, "maxLength": 5000 },
           "tags": { "type": "array", "items": { "type": "string" } },
           "scope": { "type": "string" }
         }

@@ -13,6 +13,8 @@ The most valuable contribution is a small, sanitized search miss that represents
 
 Keep content free of secrets, personal data, private organization names, customer data, and proprietary code. Generalize details while preserving the retrieval challenge.
 
+Fixture memories are written through the real `ai-devkit memory store` command. Titles must be 10-100 characters and content 50-5000 characters. Deliberate near-duplicate distractors are welcome when their content is distinct. Exact duplicate titles or content in the same scope are rejected by ai-devkit's deduplication; that failure is benchmarked product behavior, not something the harness bypasses.
+
 ## Judgment guide
 
 - `2`: ideal answer to the information need.
