@@ -6,9 +6,9 @@ The benchmark asks realistic developer questions about decisions, conventions, f
 
 ## Leaderboard
 
-| ai-devkit | hit@1 | hit@3 | hit@5 | zero results | irrelevant top-3 | judged coverage | wall p50 | wall p95 | Δ hit@3 |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 0.56.0 | 52.5% | 52.5% | 57.5% | 2.5% | 8.7% | 29.1% | 934.9ms | 993.2ms | baseline |
+| ai-devkit | hit@1 | hit@3 | hit@5 | zero results | irrelevant top-3 | judged coverage | wall p50 | wall p95 | seed time | Δ hit@3 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0.56.0 | 47.5% | 52.5% | 55.0% | 2.5% | 0.0% | 26.6% | 934.1ms | 989.9ms | 18.1s | baseline |
 
 Checked-in machine-readable runs live in [`results/`](results/). No composite score is reported: recall, empty responses, judged noise, coverage, and latency expose different trade-offs and remain independently reviewable.
 

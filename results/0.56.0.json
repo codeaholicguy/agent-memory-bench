@@ -4,32 +4,33 @@
   "version": "0.56.0",
   "mode": "release",
   "fixtureRevision": "core-v1",
-  "generatedAt": "2026-08-29T09:42:23.957Z",
+  "generatedAt": "2026-08-29T13:18:12.326Z",
   "metrics": {
     "queryCount": 40,
-    "hitAt1": 0.525,
+    "hitAt1": 0.475,
     "hitAt3": 0.525,
-    "hitAt5": 0.575,
+    "hitAt5": 0.55,
     "zeroResultRate": 0.025,
-    "irrelevantTop3Rate": 0.08695652173913043,
-    "top3JudgmentCoverage": 0.2911392405063291,
-    "wallLatencyP50Ms": 934.877926000001,
-    "wallLatencyP95Ms": 993.1626639999995
+    "irrelevantTop3Rate": 0,
+    "top3JudgmentCoverage": 0.26582278481012656,
+    "wallLatencyP50Ms": 934.0859669999991,
+    "wallLatencyP95Ms": 989.9340119999979
   },
-  "elapsedMs": 37714.494655999995,
+  "seedTimeMs": 18051.605368999997,
+  "elapsedMs": 37595.155145,
   "cases": [
     {
       "id": "dto-natural",
       "need": "response-dto",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 968.0648420000001,
+      "wallMs": 982.8896910000003,
       "strategy": null
     },
     {
@@ -37,9 +38,9 @@
       "need": "response-dto",
       "variant": "keyword",
       "resultIds": [
-        "api-response-dto"
+        "7fefb4c0-4798-4877-a52a-b7569d95ffe4"
       ],
-      "wallMs": 944.7465940000002,
+      "wallMs": 1011.2751989999997,
       "strategy": null
     },
     {
@@ -47,13 +48,13 @@
       "need": "response-dto",
       "variant": "paraphrase",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 932.0426240000002,
+      "wallMs": 971.8316340000019,
       "strategy": null
     },
     {
@@ -61,9 +62,9 @@
       "need": "response-dto",
       "variant": "identifier-exact",
       "resultIds": [
-        "api-url-versioning"
+        "00df6506-c0ca-4935-98b2-3a72b21f8736"
       ],
-      "wallMs": 929.733956,
+      "wallMs": 941.7316829999982,
       "strategy": null
     },
     {
@@ -71,13 +72,13 @@
       "need": "browser-auth",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 931.2155960000005,
+      "wallMs": 947.4983639999991,
       "strategy": null
     },
     {
@@ -85,9 +86,9 @@
       "need": "browser-auth",
       "variant": "keyword",
       "resultIds": [
-        "auth-cookie-session"
+        "0cbf0aa4-72d4-41df-ac87-bd937a8f60f9"
       ],
-      "wallMs": 943.4134459999996,
+      "wallMs": 950.3942790000001,
       "strategy": null
     },
     {
@@ -95,13 +96,13 @@
       "need": "browser-auth",
       "variant": "paraphrase",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 930.5152349999998,
+      "wallMs": 927.4240910000008,
       "strategy": null
     },
     {
@@ -109,9 +110,9 @@
       "need": "browser-auth",
       "variant": "identifier-exact",
       "resultIds": [
-        "auth-token-refresh"
+        "7a22de87-ba31-4425-bc25-a82b904e036d"
       ],
-      "wallMs": 919.7767160000003,
+      "wallMs": 970.2344069999999,
       "strategy": null
     },
     {
@@ -119,13 +120,13 @@
       "need": "safe-migrations",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 926.219458999999,
+      "wallMs": 1095.660783000003,
       "strategy": null
     },
     {
@@ -133,9 +134,9 @@
       "need": "safe-migrations",
       "variant": "keyword",
       "resultIds": [
-        "db-expand-contract"
+        "576213c2-f5cb-46f3-8aa4-b130022e52eb"
       ],
-      "wallMs": 911.773142,
+      "wallMs": 949.8457400000007,
       "strategy": null
     },
     {
@@ -143,13 +144,13 @@
       "need": "safe-migrations",
       "variant": "paraphrase",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 980.6419439999991,
+      "wallMs": 948.4010139999991,
       "strategy": null
     },
     {
@@ -157,9 +158,9 @@
       "need": "safe-migrations",
       "variant": "identifier-exact",
       "resultIds": [
-        "db-index-review"
+        "f0fad0d7-4b15-46c7-9d70-ec19ad758165"
       ],
-      "wallMs": 993.1626639999995,
+      "wallMs": 989.9340119999979,
       "strategy": null
     },
     {
@@ -167,13 +168,13 @@
       "need": "web-retry",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "auth-token-refresh"
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119",
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0"
       ],
-      "wallMs": 935.1956840000003,
+      "wallMs": 970.5604430000021,
       "strategy": null
     },
     {
@@ -181,9 +182,9 @@
       "need": "web-retry",
       "variant": "keyword",
       "resultIds": [
-        "web-1842-retry"
+        "3ccf954b-eb62-4a3d-82ca-e1500bd44828"
       ],
-      "wallMs": 920.0350549999985,
+      "wallMs": 928.5031720000006,
       "strategy": null
     },
     {
@@ -191,13 +192,13 @@
       "need": "web-retry",
       "variant": "paraphrase",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "auth-token-refresh"
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119",
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0"
       ],
-      "wallMs": 907.433556,
+      "wallMs": 933.3340419999986,
       "strategy": null
     },
     {
@@ -205,9 +206,9 @@
       "need": "web-retry",
       "variant": "identifier-exact",
       "resultIds": [
-        "web-1842-retry"
+        "3ccf954b-eb62-4a3d-82ca-e1500bd44828"
       ],
-      "wallMs": 997.1649209999996,
+      "wallMs": 966.396217999998,
       "strategy": null
     },
     {
@@ -215,13 +216,13 @@
       "need": "deterministic-time-tests",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 1003.1083710000003,
+      "wallMs": 904.1401770000011,
       "strategy": null
     },
     {
@@ -229,9 +230,9 @@
       "need": "deterministic-time-tests",
       "variant": "keyword",
       "resultIds": [
-        "test-clock"
+        "fb15caef-7bd4-457b-a87b-175367129053"
       ],
-      "wallMs": 988.4594810000017,
+      "wallMs": 933.1767920000057,
       "strategy": null
     },
     {
@@ -239,7 +240,7 @@
       "need": "deterministic-time-tests",
       "variant": "paraphrase",
       "resultIds": [],
-      "wallMs": 919.7495540000018,
+      "wallMs": 913.4367019999991,
       "strategy": null
     },
     {
@@ -247,9 +248,9 @@
       "need": "deterministic-time-tests",
       "variant": "identifier-exact",
       "resultIds": [
-        "test-snapshots"
+        "4d59fc06-1091-4cc1-aa0b-6dffde9d186f"
       ],
-      "wallMs": 938.7763799999993,
+      "wallMs": 903.8091009999989,
       "strategy": null
     },
     {
@@ -257,13 +258,13 @@
       "need": "release-order",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 934.877926000001,
+      "wallMs": 911.3467239999954,
       "strategy": null
     },
     {
@@ -271,9 +272,9 @@
       "need": "release-order",
       "variant": "keyword",
       "resultIds": [
-        "deploy-migrate"
+        "6314ad55-3c2f-4b29-831a-96e4dd4f3729"
       ],
-      "wallMs": 945.084598999998,
+      "wallMs": 954.213840000004,
       "strategy": null
     },
     {
@@ -281,13 +282,13 @@
       "need": "release-order",
       "variant": "paraphrase",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 907.3870879999995,
+      "wallMs": 920.5993610000005,
       "strategy": null
     },
     {
@@ -295,9 +296,9 @@
       "need": "release-order",
       "variant": "identifier-exact",
       "resultIds": [
-        "deploy-command"
+        "9c92aa0a-25fb-4562-8885-06c7fc72b33a"
       ],
-      "wallMs": 916.0430040000028,
+      "wallMs": 915.0165760000018,
       "strategy": null
     },
     {
@@ -305,13 +306,13 @@
       "need": "safe-logging",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 913.7616650000018,
+      "wallMs": 902.2557199999937,
       "strategy": null
     },
     {
@@ -319,9 +320,9 @@
       "need": "safe-logging",
       "variant": "keyword",
       "resultIds": [
-        "log-secrets"
+        "1e42994b-28ee-4e98-9138-5656c1ff57f9"
       ],
-      "wallMs": 912.911755000001,
+      "wallMs": 943.8074179999967,
       "strategy": null
     },
     {
@@ -329,13 +330,13 @@
       "need": "safe-logging",
       "variant": "paraphrase",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 934.3500269999968,
+      "wallMs": 884.4422639999975,
       "strategy": null
     },
     {
@@ -343,9 +344,9 @@
       "need": "safe-logging",
       "variant": "identifier-exact",
       "resultIds": [
-        "log-request-id"
+        "ceb2d47e-2b2d-422d-a083-21b209a20203"
       ],
-      "wallMs": 992.8226429999995,
+      "wallMs": 951.5498359999983,
       "strategy": null
     },
     {
@@ -353,13 +354,13 @@
       "need": "configuration-precedence",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 907.6817680000022,
+      "wallMs": 942.9608469999948,
       "strategy": null
     },
     {
@@ -367,9 +368,9 @@
       "need": "configuration-precedence",
       "variant": "keyword",
       "resultIds": [
-        "config-env"
+        "14be38b4-d199-4ec3-ab03-8355fd67b2df"
       ],
-      "wallMs": 964.9057609999982,
+      "wallMs": 898.1357429999989,
       "strategy": null
     },
     {
@@ -377,13 +378,13 @@
       "need": "configuration-precedence",
       "variant": "paraphrase",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 971.2442259999989,
+      "wallMs": 908.673014,
       "strategy": null
     },
     {
@@ -391,13 +392,13 @@
       "need": "configuration-precedence",
       "variant": "identifier-exact",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 951.2354200000009,
+      "wallMs": 903.6963780000005,
       "strategy": null
     },
     {
@@ -405,13 +406,13 @@
       "need": "payment-conflict",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "auth-token-refresh"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "81d457ec-6337-41f4-b42d-8a088804d3f0"
       ],
-      "wallMs": 946.7542759999997,
+      "wallMs": 905.1130520000006,
       "strategy": null
     },
     {
@@ -419,9 +420,9 @@
       "need": "payment-conflict",
       "variant": "keyword",
       "resultIds": [
-        "err-payment-409"
+        "e434b0bb-9ae5-407f-8e1b-e8a0641f4ed4"
       ],
-      "wallMs": 929.5057889999989,
+      "wallMs": 915.5011620000005,
       "strategy": null
     },
     {
@@ -429,13 +430,13 @@
       "need": "payment-conflict",
       "variant": "paraphrase",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "auth-token-refresh"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "81d457ec-6337-41f4-b42d-8a088804d3f0"
       ],
-      "wallMs": 921.9825089999977,
+      "wallMs": 941.809484999998,
       "strategy": null
     },
     {
@@ -443,9 +444,9 @@
       "need": "payment-conflict",
       "variant": "identifier-exact",
       "resultIds": [
-        "err-payment-409"
+        "e434b0bb-9ae5-407f-8e1b-e8a0641f4ed4"
       ],
-      "wallMs": 919.2164789999952,
+      "wallMs": 901.7658670000019,
       "strategy": null
     },
     {
@@ -453,13 +454,13 @@
       "need": "safe-feature-publish",
       "variant": "natural-language",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 981.357812000002,
+      "wallMs": 956.5074299999978,
       "strategy": null
     },
     {
@@ -467,9 +468,9 @@
       "need": "safe-feature-publish",
       "variant": "keyword",
       "resultIds": [
-        "git-rebase"
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0"
       ],
-      "wallMs": 947.0825790000017,
+      "wallMs": 903.7041580000005,
       "strategy": null
     },
     {
@@ -477,13 +478,13 @@
       "need": "safe-feature-publish",
       "variant": "paraphrase",
       "resultIds": [
-        "api-response-dto",
-        "api-request-validation",
-        "api-pagination",
-        "auth-cookie-session",
-        "api-url-versioning"
+        "6e2e5f72-4104-4e7b-8707-e496383d80d9",
+        "fba57944-1a19-446f-a5e6-fa295901bde6",
+        "88cbd179-403e-4cfd-93dd-83f37da172a3",
+        "f9e35632-decb-4f55-91ad-863af0d0cbb0",
+        "2db0c116-ecfa-4a9f-b794-99ba69ee6119"
       ],
-      "wallMs": 941.5419850000035,
+      "wallMs": 957.2384069999971,
       "strategy": null
     },
     {
@@ -491,9 +492,9 @@
       "need": "safe-feature-publish",
       "variant": "identifier-exact",
       "resultIds": [
-        "git-force"
+        "fba57944-1a19-446f-a5e6-fa295901bde6"
       ],
-      "wallMs": 951.5661890000047,
+      "wallMs": 934.0859669999991,
       "strategy": null
     }
   ]
