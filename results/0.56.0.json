@@ -1,0 +1,500 @@
+{
+  "schemaVersion": 1,
+  "tool": "ai-devkit",
+  "version": "0.56.0",
+  "mode": "release",
+  "fixtureRevision": "core-v1",
+  "generatedAt": "2026-08-29T09:42:23.957Z",
+  "metrics": {
+    "queryCount": 40,
+    "hitAt1": 0.525,
+    "hitAt3": 0.525,
+    "hitAt5": 0.575,
+    "zeroResultRate": 0.025,
+    "irrelevantTop3Rate": 0.08695652173913043,
+    "top3JudgmentCoverage": 0.2911392405063291,
+    "wallLatencyP50Ms": 934.877926000001,
+    "wallLatencyP95Ms": 993.1626639999995
+  },
+  "elapsedMs": 37714.494655999995,
+  "cases": [
+    {
+      "id": "dto-natural",
+      "need": "response-dto",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 968.0648420000001,
+      "strategy": null
+    },
+    {
+      "id": "dto-keyword",
+      "need": "response-dto",
+      "variant": "keyword",
+      "resultIds": [
+        "api-response-dto"
+      ],
+      "wallMs": 944.7465940000002,
+      "strategy": null
+    },
+    {
+      "id": "dto-paraphrase",
+      "need": "response-dto",
+      "variant": "paraphrase",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 932.0426240000002,
+      "strategy": null
+    },
+    {
+      "id": "versioning-exact",
+      "need": "response-dto",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "api-url-versioning"
+      ],
+      "wallMs": 929.733956,
+      "strategy": null
+    },
+    {
+      "id": "auth-natural",
+      "need": "browser-auth",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 931.2155960000005,
+      "strategy": null
+    },
+    {
+      "id": "auth-keyword",
+      "need": "browser-auth",
+      "variant": "keyword",
+      "resultIds": [
+        "auth-cookie-session"
+      ],
+      "wallMs": 943.4134459999996,
+      "strategy": null
+    },
+    {
+      "id": "auth-paraphrase",
+      "need": "browser-auth",
+      "variant": "paraphrase",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 930.5152349999998,
+      "strategy": null
+    },
+    {
+      "id": "oauth-exact",
+      "need": "browser-auth",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "auth-token-refresh"
+      ],
+      "wallMs": 919.7767160000003,
+      "strategy": null
+    },
+    {
+      "id": "migration-natural",
+      "need": "safe-migrations",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 926.219458999999,
+      "strategy": null
+    },
+    {
+      "id": "migration-keyword",
+      "need": "safe-migrations",
+      "variant": "keyword",
+      "resultIds": [
+        "db-expand-contract"
+      ],
+      "wallMs": 911.773142,
+      "strategy": null
+    },
+    {
+      "id": "migration-paraphrase",
+      "need": "safe-migrations",
+      "variant": "paraphrase",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 980.6419439999991,
+      "strategy": null
+    },
+    {
+      "id": "migration-command",
+      "need": "safe-migrations",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "db-index-review"
+      ],
+      "wallMs": 993.1626639999995,
+      "strategy": null
+    },
+    {
+      "id": "retry-natural",
+      "need": "web-retry",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "auth-token-refresh"
+      ],
+      "wallMs": 935.1956840000003,
+      "strategy": null
+    },
+    {
+      "id": "retry-keyword",
+      "need": "web-retry",
+      "variant": "keyword",
+      "resultIds": [
+        "web-1842-retry"
+      ],
+      "wallMs": 920.0350549999985,
+      "strategy": null
+    },
+    {
+      "id": "retry-paraphrase",
+      "need": "web-retry",
+      "variant": "paraphrase",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "auth-token-refresh"
+      ],
+      "wallMs": 907.433556,
+      "strategy": null
+    },
+    {
+      "id": "retry-exact",
+      "need": "web-retry",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "web-1842-retry"
+      ],
+      "wallMs": 997.1649209999996,
+      "strategy": null
+    },
+    {
+      "id": "clock-natural",
+      "need": "deterministic-time-tests",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 1003.1083710000003,
+      "strategy": null
+    },
+    {
+      "id": "clock-keyword",
+      "need": "deterministic-time-tests",
+      "variant": "keyword",
+      "resultIds": [
+        "test-clock"
+      ],
+      "wallMs": 988.4594810000017,
+      "strategy": null
+    },
+    {
+      "id": "clock-paraphrase",
+      "need": "deterministic-time-tests",
+      "variant": "paraphrase",
+      "resultIds": [],
+      "wallMs": 919.7495540000018,
+      "strategy": null
+    },
+    {
+      "id": "snapshots-keyword",
+      "need": "deterministic-time-tests",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "test-snapshots"
+      ],
+      "wallMs": 938.7763799999993,
+      "strategy": null
+    },
+    {
+      "id": "deploy-natural",
+      "need": "release-order",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 934.877926000001,
+      "strategy": null
+    },
+    {
+      "id": "deploy-keyword",
+      "need": "release-order",
+      "variant": "keyword",
+      "resultIds": [
+        "deploy-migrate"
+      ],
+      "wallMs": 945.084598999998,
+      "strategy": null
+    },
+    {
+      "id": "deploy-paraphrase",
+      "need": "release-order",
+      "variant": "paraphrase",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 907.3870879999995,
+      "strategy": null
+    },
+    {
+      "id": "deploy-command-exact",
+      "need": "release-order",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "deploy-command"
+      ],
+      "wallMs": 916.0430040000028,
+      "strategy": null
+    },
+    {
+      "id": "logging-natural",
+      "need": "safe-logging",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 913.7616650000018,
+      "strategy": null
+    },
+    {
+      "id": "logging-keyword",
+      "need": "safe-logging",
+      "variant": "keyword",
+      "resultIds": [
+        "log-secrets"
+      ],
+      "wallMs": 912.911755000001,
+      "strategy": null
+    },
+    {
+      "id": "logging-paraphrase",
+      "need": "safe-logging",
+      "variant": "paraphrase",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 934.3500269999968,
+      "strategy": null
+    },
+    {
+      "id": "logging-field",
+      "need": "safe-logging",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "log-request-id"
+      ],
+      "wallMs": 992.8226429999995,
+      "strategy": null
+    },
+    {
+      "id": "config-natural",
+      "need": "configuration-precedence",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 907.6817680000022,
+      "strategy": null
+    },
+    {
+      "id": "config-keyword",
+      "need": "configuration-precedence",
+      "variant": "keyword",
+      "resultIds": [
+        "config-env"
+      ],
+      "wallMs": 964.9057609999982,
+      "strategy": null
+    },
+    {
+      "id": "config-paraphrase",
+      "need": "configuration-precedence",
+      "variant": "paraphrase",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 971.2442259999989,
+      "strategy": null
+    },
+    {
+      "id": "config-exact",
+      "need": "configuration-precedence",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 951.2354200000009,
+      "strategy": null
+    },
+    {
+      "id": "payment-natural",
+      "need": "payment-conflict",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "auth-token-refresh"
+      ],
+      "wallMs": 946.7542759999997,
+      "strategy": null
+    },
+    {
+      "id": "payment-keyword",
+      "need": "payment-conflict",
+      "variant": "keyword",
+      "resultIds": [
+        "err-payment-409"
+      ],
+      "wallMs": 929.5057889999989,
+      "strategy": null
+    },
+    {
+      "id": "payment-paraphrase",
+      "need": "payment-conflict",
+      "variant": "paraphrase",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "auth-token-refresh"
+      ],
+      "wallMs": 921.9825089999977,
+      "strategy": null
+    },
+    {
+      "id": "payment-exact",
+      "need": "payment-conflict",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "err-payment-409"
+      ],
+      "wallMs": 919.2164789999952,
+      "strategy": null
+    },
+    {
+      "id": "git-natural",
+      "need": "safe-feature-publish",
+      "variant": "natural-language",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 981.357812000002,
+      "strategy": null
+    },
+    {
+      "id": "git-keyword",
+      "need": "safe-feature-publish",
+      "variant": "keyword",
+      "resultIds": [
+        "git-rebase"
+      ],
+      "wallMs": 947.0825790000017,
+      "strategy": null
+    },
+    {
+      "id": "git-paraphrase",
+      "need": "safe-feature-publish",
+      "variant": "paraphrase",
+      "resultIds": [
+        "api-response-dto",
+        "api-request-validation",
+        "api-pagination",
+        "auth-cookie-session",
+        "api-url-versioning"
+      ],
+      "wallMs": 941.5419850000035,
+      "strategy": null
+    },
+    {
+      "id": "git-exact",
+      "need": "safe-feature-publish",
+      "variant": "identifier-exact",
+      "resultIds": [
+        "git-force"
+      ],
+      "wallMs": 951.5661890000047,
+      "strategy": null
+    }
+  ]
+}
