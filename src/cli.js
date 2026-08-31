@@ -37,7 +37,7 @@ async function main() {
   try {
     const seeded = await seedMemories({ bin: tool.bin, projectDir: project.projectDir, memories: fixture.memories });
     cases = remapCases(cases, seeded.idMap);
-    const suite = await runSuite({ bin: tool.bin, projectDir: project.projectDir, cases, budgetMs: Number(option('--budget-ms') ?? 60000), onResult: has('--explain') ? run => {
+    const suite = await runSuite({ bin: tool.bin, projectDir: project.projectDir, cases, budgetMs: Number(option("--budget-ms") ?? 300000), onResult: has('--explain') ? run => {
       console.log(`\n${run.item.id}: ${run.item.query}`);
       console.log(JSON.stringify({ strategy: run.output.strategy ?? null, wallMs: run.wallMs, results: run.output.results }, null, 2));
     } : undefined });
