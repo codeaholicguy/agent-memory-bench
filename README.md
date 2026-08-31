@@ -6,11 +6,12 @@ The benchmark asks realistic developer questions about decisions, conventions, f
 
 ## Leaderboard
 
-| ai-devkit | hit@1 | hit@3 | hit@5 | zero results | irrelevant top-3 | judged coverage | wall p50 | wall p95 | seed time | Δ hit@3 |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 0.56.0 | 47.5% | 52.5% | 55.0% | 2.5% | 0.0% | 26.6% | 934.1ms | 989.9ms | 18.1s | baseline |
+| ai-devkit | fixture set | hit@1 | hit@3 | hit@5 | zero results | irrelevant top-3 | judged coverage | wall p50 | wall p95 | seed time | Δ hit@3 |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0.56.0 | expanded-100 | 43.0% | 45.0% | 45.0% | 5.0% | 0.0% | 22.5% | 942.0ms | 1008.8ms | 33.2s | baseline |
+| 0.57.0 | expanded-100 | 45.0% | 45.0% | 45.0% | 5.0% | 0.0% | 22.5% | 937.8ms | 1003.0ms | 32.0s | +0.0 pp |
 
-Checked-in machine-readable runs live in [`results/`](results/). No composite score is reported: recall, empty responses, judged noise, coverage, and latency expose different trade-offs and remain independently reviewable.
+Both leaderboard rows use the same 25-need, 100-query, 100-memory `expanded-100` fixture set. The earlier 40-query 0.56.0 run remains in [`results/0.56.0.json`](results/0.56.0.json) for historical reference; the comparable re-baseline is [`results/0.56.0-with-new-fixtures.json`](results/0.56.0-with-new-fixtures.json). No composite score is reported: recall, empty responses, judged noise, coverage, and latency expose different trade-offs and remain independently reviewable.
 
 ## Run it
 
@@ -65,7 +66,7 @@ The store path creates the database and real schema on first use, normalizes fix
 
 ## Fixtures
 
-- [`fixtures/core/`](fixtures/core/) is the maintained baseline: 10 information needs, 40 query variants, and 40 realistic memories with deliberate distractors.
+- [`fixtures/core/`](fixtures/core/) and the reviewed community fixtures form the maintained baseline: 25 information needs, 100 query cases, and 100 realistic memories with deliberate distractors.
 - [`fixtures/community/`](fixtures/community/) is optimized for small, reviewable additions. Copy `example.yaml.template` to a `.yaml` file, use globally unique IDs, and keep one miss or tightly related need per file.
 - [`fixtures/schema.json`](fixtures/schema.json) documents schema version 1 and store limits. `npm run validate` additionally enforces cross-file uniqueness, valid references, grades, variants, title length 10-100, content length 50-5000, and at least one relevant judgment per case.
 
