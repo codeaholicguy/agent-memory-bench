@@ -1,0 +1,21 @@
+schemaVersion: 1
+name: observability-decisions
+description: Trace sampling and service-level alerting knowledge with related logging and metric distractors.
+memories:
+  - { id: obs-trace-tail-sampling, title: Tail sample traces with errors and latency, content: "Production tracing keeps every error trace and request above the latency threshold, then samples one percent of otherwise successful traffic.", tags: [observability, tracing, sampling], scope: global }
+  - { id: obs-trace-propagation, title: Propagate W3C trace context headers, content: "Services propagate traceparent and tracestate across HTTP and messaging boundaries so spans join the originating distributed trace.", tags: [observability, tracing, w3c], scope: global }
+  - { id: obs-trace-pii, title: Trace attributes exclude personal data, content: "Span attributes may include route templates and status codes but never raw URLs, email addresses, user IDs, or request bodies.", tags: [observability, tracing, privacy], scope: global }
+  - { id: obs-trace-dev, title: Sample all traces in development, content: "Local and integration environments retain all traces because their traffic volume is bounded and debugging value is high.", tags: [observability, tracing, development], scope: global }
+  - { id: obs-alert-burn-rate, title: Page on multi-window error-budget burn, content: "Paging alerts combine fast and slow burn-rate windows against the availability SLO instead of firing on a single error-count threshold.", tags: [observability, alerts, slo], scope: global }
+  - { id: obs-alert-ticket, title: Ticket low urgency capacity trends, content: "Disk growth and capacity forecasts create daytime tickets unless they threaten the service objective within the paging horizon.", tags: [observability, alerts, capacity], scope: global }
+  - { id: obs-alert-symptoms, title: Alert on user-visible symptoms, content: "Primary alerts measure failed or slow user operations; host CPU and memory are diagnostic signals rather than paging conditions by themselves.", tags: [observability, alerts, symptoms], scope: global }
+  - { id: obs-alert-runbook, title: Every page links an owned runbook, content: "A paging rule must identify the owning team and link a tested runbook containing impact checks and safe mitigation steps.", tags: [observability, alerts, runbook], scope: global }
+cases:
+  - { id: obs-trace-natural, need: trace-sampling, variant: natural-language, query: "Which production requests must always retain their distributed traces?", judgments: [{ memoryId: obs-trace-tail-sampling, relevance: 2 }, { memoryId: obs-trace-dev, relevance: 0 }] }
+  - { id: obs-trace-keyword, need: trace-sampling, variant: keyword, query: "tail sampling errors slow requests one percent", judgments: [{ memoryId: obs-trace-tail-sampling, relevance: 2 }] }
+  - { id: obs-trace-paraphrase, need: trace-sampling, variant: paraphrase, query: "How do spans from downstream services join the original request?", judgments: [{ memoryId: obs-trace-propagation, relevance: 2 }, { memoryId: obs-trace-tail-sampling, relevance: 1 }] }
+  - { id: obs-trace-exact, need: trace-sampling, variant: identifier-exact, query: "traceparent tracestate", judgments: [{ memoryId: obs-trace-propagation, relevance: 2 }, { memoryId: obs-trace-pii, relevance: 0 }] }
+  - { id: obs-alert-natural, need: slo-alerting, variant: natural-language, query: "What should wake the on-call engineer for availability failures?", judgments: [{ memoryId: obs-alert-burn-rate, relevance: 2 }, { memoryId: obs-alert-symptoms, relevance: 1 }, { memoryId: obs-alert-ticket, relevance: 0 }] }
+  - { id: obs-alert-keyword, need: slo-alerting, variant: keyword, query: "multi-window error budget burn paging", judgments: [{ memoryId: obs-alert-burn-rate, relevance: 2 }] }
+  - { id: obs-alert-paraphrase, need: slo-alerting, variant: paraphrase, query: "Should high host CPU alone trigger a page?", judgments: [{ memoryId: obs-alert-symptoms, relevance: 2 }, { memoryId: obs-alert-burn-rate, relevance: 1 }] }
+  - { id: obs-alert-exact, need: slo-alerting, variant: identifier-exact, query: "SLO burn-rate", judgments: [{ memoryId: obs-alert-burn-rate, relevance: 2 }, { memoryId: obs-alert-runbook, relevance: 1 }] }

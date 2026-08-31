@@ -1,0 +1,21 @@
+schemaVersion: 1
+name: security-practices
+description: Secret rotation and SSRF prevention policies with authentication and networking distractors.
+memories:
+  - { id: security-secret-dual-read, title: Rotate secrets with a dual-read window, content: "Services accept both old and new signing keys during a bounded rotation window, issue new credentials with the new key, then revoke the old key.", tags: [security, secrets, rotation], scope: global }
+  - { id: security-secret-manager, title: Load production secrets from the secret manager, content: "Production credentials are fetched through workload identity from the managed secret store and never copied into repository configuration.", tags: [security, secrets, identity], scope: global }
+  - { id: security-secret-audit, title: Audit secret reads and administrative changes, content: "The security audit stream records secret access, rotation, and permission changes without recording secret values.", tags: [security, secrets, audit], scope: global }
+  - { id: security-secret-emergency, title: Compromised credentials skip overlap, content: "Suspected compromised credentials are revoked immediately; the normal dual-key overlap is only for planned rotation.", tags: [security, secrets, incident], scope: global }
+  - { id: security-ssrf-allowlist, title: Allowlist outbound webhook destinations, content: "Webhook delivery resolves and validates destinations against the tenant allowlist before every connection, including redirects.", tags: [security, ssrf, webhooks], scope: global }
+  - { id: security-ssrf-private, title: Block private and metadata address ranges, content: "Outbound URL fetchers reject loopback, link-local, private network, and cloud metadata addresses after DNS resolution.", tags: [security, ssrf, network], scope: global }
+  - { id: security-ssrf-redirect, title: Revalidate every outbound redirect, content: "The HTTP client limits redirects and applies scheme, host, DNS, and address checks again at every redirect hop.", tags: [security, ssrf, redirects], scope: global }
+  - { id: security-ssrf-proxy, title: Route arbitrary fetches through the egress proxy, content: "Features that fetch user-provided URLs use the restricted egress proxy rather than opening direct application-network connections.", tags: [security, ssrf, proxy], scope: global }
+cases:
+  - { id: security-secret-natural, need: secret-rotation, variant: natural-language, query: "How can signing keys rotate without invalidating every active credential at once?", judgments: [{ memoryId: security-secret-dual-read, relevance: 2 }, { memoryId: security-secret-emergency, relevance: 1 }] }
+  - { id: security-secret-keyword, need: secret-rotation, variant: keyword, query: "dual read old new signing key rotation", judgments: [{ memoryId: security-secret-dual-read, relevance: 2 }] }
+  - { id: security-secret-paraphrase, need: secret-rotation, variant: paraphrase, query: "Should a leaked credential keep the planned overlap period?", judgments: [{ memoryId: security-secret-emergency, relevance: 2 }, { memoryId: security-secret-dual-read, relevance: 1 }] }
+  - { id: security-secret-exact, need: secret-rotation, variant: identifier-exact, query: "workload identity secret store", judgments: [{ memoryId: security-secret-manager, relevance: 2 }, { memoryId: security-secret-audit, relevance: 1 }] }
+  - { id: security-ssrf-natural, need: ssrf-defense, variant: natural-language, query: "How do webhook requests avoid reaching internal network services?", judgments: [{ memoryId: security-ssrf-private, relevance: 2 }, { memoryId: security-ssrf-allowlist, relevance: 1 }] }
+  - { id: security-ssrf-keyword, need: ssrf-defense, variant: keyword, query: "SSRF block loopback link-local metadata DNS", judgments: [{ memoryId: security-ssrf-private, relevance: 2 }] }
+  - { id: security-ssrf-paraphrase, need: ssrf-defense, variant: paraphrase, query: "Must an outbound redirect destination be checked again?", judgments: [{ memoryId: security-ssrf-redirect, relevance: 2 }, { memoryId: security-ssrf-allowlist, relevance: 1 }] }
+  - { id: security-ssrf-exact, need: ssrf-defense, variant: identifier-exact, query: "169.254.169.254", judgments: [{ memoryId: security-ssrf-private, relevance: 2 }, { memoryId: security-ssrf-proxy, relevance: 1 }] }

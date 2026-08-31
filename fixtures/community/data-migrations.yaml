@@ -1,0 +1,13 @@
+schemaVersion: 1
+name: data-migration-policies
+description: Resumable production backfill knowledge with closely related migration distractors.
+memories:
+  - { id: migration-backfill-checkpoint, title: Checkpoint production backfills by primary key, content: "Large backfills process bounded primary-key ranges and persist the last completed range so an interrupted job resumes without starting over.", tags: [database, migration, backfill], scope: global }
+  - { id: migration-backfill-idempotent, title: Make every backfill batch idempotent, content: "Each backfill batch can run repeatedly and updates only rows still requiring transformation, making retries safe after partial failure.", tags: [database, migration, idempotency], scope: global }
+  - { id: migration-backfill-throttle, title: Throttle backfills using database health, content: "The worker pauses between batches when replica lag or transaction latency crosses its limit and resumes after the database recovers.", tags: [database, migration, performance], scope: global }
+  - { id: migration-backfill-verify, title: Verify backfills with source and target counts, content: "Before contract cleanup, compare source and target counts, sample transformed records, and record the verification query with the release evidence.", tags: [database, migration, verification], scope: global }
+cases:
+  - { id: migration-backfill-natural, need: resumable-backfills, variant: natural-language, query: "How should a large data correction continue after its worker is restarted?", judgments: [{ memoryId: migration-backfill-checkpoint, relevance: 2 }, { memoryId: migration-backfill-idempotent, relevance: 1 }] }
+  - { id: migration-backfill-keyword, need: resumable-backfills, variant: keyword, query: "backfill checkpoint bounded primary key ranges resume", judgments: [{ memoryId: migration-backfill-checkpoint, relevance: 2 }] }
+  - { id: migration-backfill-paraphrase, need: resumable-backfills, variant: paraphrase, query: "What makes replaying a partially completed data batch safe?", judgments: [{ memoryId: migration-backfill-idempotent, relevance: 2 }, { memoryId: migration-backfill-checkpoint, relevance: 1 }] }
+  - { id: migration-backfill-exact, need: resumable-backfills, variant: identifier-exact, query: "replica lag", judgments: [{ memoryId: migration-backfill-throttle, relevance: 2 }, { memoryId: migration-backfill-verify, relevance: 0 }] }
