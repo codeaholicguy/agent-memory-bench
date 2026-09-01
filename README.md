@@ -11,8 +11,11 @@ The benchmark asks realistic developer questions about decisions, conventions, f
 | 0.56.0 | expanded-100 | 43.0% | 45.0% | 45.0% | 5.0% | 0.0% | 22.5% | 942.0ms | 1008.8ms | 33.2s | baseline |
 | 0.57.0 | expanded-100 | 45.0% | 45.0% | 45.0% | 5.0% | 0.0% | 22.5% | 937.8ms | 1003.0ms | 32.0s | +0.0 pp |
 | 0.57.1 | expanded-100 | 81.0% | 91.0% | 96.0% | 1.0% | 2.9% | 50.2% | 939.1ms | 1039.1ms | 36.0s | +46.0 pp |
+| 0.58.0 | expanded-100 | 81.0% | 91.0% | 96.0% | 1.0% | 2.9% | 50.2% | 1057.7ms | 1370.8ms | 34.9s | +0.0 pp |
 
 The 0.57.1 jump reflects the full-text retrieval improvements (#204) reaching the CLI for the first time: 0.57.0 pinned `@ai-devkit/memory` 0.16.0 from npm, which predates #204 due to a missed version bump; 0.57.1 pins 0.17.0 with the fix.
+
+The 0.58.0 row uses the default lexical configuration. Hybrid semantic search (#208) is available in the release but remains disabled by default, so it is not represented in this row.
 
 All leaderboard rows use the same 25-need, 100-query, 100-memory `expanded-100` fixture set. The earlier 40-query 0.56.0 run remains in [`results/0.56.0.json`](results/0.56.0.json) for historical reference; the comparable re-baseline is [`results/0.56.0-with-new-fixtures.json`](results/0.56.0-with-new-fixtures.json). No composite score is reported: recall, empty responses, judged noise, coverage, and latency expose different trade-offs and remain independently reviewable.
 
