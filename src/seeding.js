@@ -31,6 +31,38 @@ async function storeMemory({ bin, cwd, memory, timeoutMs }) {
   return [memory.id, parseStoreOutput(stdout)];
 }
 
+export async function runMemoryCommand({ bin, projectDir, args, timeoutMs = 300000 }) {
+  return await new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [bin, 'memory', ...args], { cwd: projectDir, stdio: ['ignore', 'pipe', 'pipe'] });
+    let out = ''; let error = '';
+    child.stdout.setEncoding('utf8').on('data', chunk => { out += chunk; });
+    child.stderr.setEncoding('utf8').on('data', chunk => { error += chunk; });
+    const timer = setTimeout(() => { child.kill(); reject(new Error(`memory ${args.join(' ')} timed out after ${timeoutMs}ms`)); }, timeoutMs);
+    child.on('error', reject);
+    child.on('close', code => {
+      clearTimeout(timer);
+      code === 0 ? resolve(out) : reject(new Error(`memory ${args.join(' ')} exited ${code}: ${error.trim()}`));
+    });
+  });
+}
+
+export async function prepareSemantic({ bin, projectDir }) {
+  await runMemoryCommand({ bin, projectDir, args: ['semantic', 'download'] });
+}
+
+export async function finalizeSemantic({ bin, projectDir, expectedCount, probeQuery }) {
+  await runMemoryCommand({ bin, projectDir, args: ['reembed'] });
+  const status = JSON.parse(await runMemoryCommand({ bin, projectDir, args: ['semantic', 'status'] }));
+  if (!status.modelReady || status.current !== expectedCount || status.missing !== 0 || status.stale !== 0) {
+    throw new Error(`semantic setup incomplete: ${JSON.stringify(status)}`);
+  }
+  const probe = JSON.parse(await runMemoryCommand({ bin, projectDir, args: ['search', '--query', probeQuery, '--limit', '5', '--explain'] }));
+  if (probe.retrievalMode !== 'hybrid' || probe.semantic?.status !== 'ready' || !probe.results.some(result => result.retrieval?.semanticRank !== null)) {
+    throw new Error(`semantic search probe did not use hybrid retrieval: ${JSON.stringify(probe)}`);
+  }
+  return status;
+}
+
 async function concurrentMap(items, concurrency, worker) {
   const results = new Array(items.length);
   let next = 0;
