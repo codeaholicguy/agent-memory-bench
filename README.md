@@ -14,10 +14,14 @@ The benchmark asks realistic developer questions about decisions, conventions, f
 | 0.58.0 | expanded-100 | 81.0% | 91.0% | 96.0% | 1.0% | 2.9% | 50.2% | 1057.7ms | 1370.8ms | 34.9s | +0.0 pp |
 | 0.59.0 | expanded-100 | 81.0% | 91.0% | 96.0% | 1.0% | 2.9% | 50.2% | 978.9ms | 1051.7ms | 33.7s | +0.0 pp |
 | 0.59.0+semantic | expanded-100 | 88.0% | 97.0% | 98.0% | 0.0% | 4.7% | 42.3% | 1709.9ms | 1795.9ms | 76.4s | +6.0 pp |
+| 0.60.0 | expanded-100 | 81.0% | 91.0% | 96.0% | 1.0% | 2.9% | 50.2% | 949.8ms | 1032.0ms | 33.9s | +0.0 pp |
+| 0.60.0+semantic | expanded-100 | 88.0% | 97.0% | 98.0% | 1.0% | 2.5% | 55.5% | 1668.6ms | 1752.2ms | 74.8s | +0.0 pp |
 
 The 0.57.1 jump reflects the full-text retrieval improvements (#204) reaching the CLI for the first time: 0.57.0 pinned `@ai-devkit/memory` 0.16.0 from npm, which predates #204 due to a missed version bump; 0.57.1 pins 0.17.0 with the fix.
 
-The 0.58.0 and unqualified 0.59.0 rows use the default lexical configuration. Hybrid semantic search (#208) remains disabled by default. The `0.59.0+semantic` row requires the opt-in `memory.semantic: true` project setting and measures hybrid retrieval; its Δ hit@3 is relative to the 0.59.0 lexical row.
+The 0.58.0 and unqualified 0.59.0/0.60.0 rows use the default lexical configuration. Hybrid semantic search (#208) remains disabled by default. Rows labeled `+semantic` require the opt-in `memory.semantic: true` project setting and measure hybrid retrieval; the 0.59.0 semantic row's Δ hit@3 is relative to the 0.59.0 lexical row.
+
+The 0.60.0 rows report Δ hit@3 against the corresponding 0.59.0 configuration. Hybrid noise reduction (#212) leaves recall unchanged while reducing judged-irrelevant top-three results from 4.7% to 2.5% and increasing judgment coverage from 42.3% to 55.5% in semantic mode.
 
 All leaderboard rows use the same 25-need, 100-query, 100-memory `expanded-100` fixture set. The earlier 40-query 0.56.0 run remains in [`results/0.56.0.json`](results/0.56.0.json) for historical reference; the comparable re-baseline is [`results/0.56.0-with-new-fixtures.json`](results/0.56.0-with-new-fixtures.json). No composite score is reported: recall, empty responses, judged noise, coverage, and latency expose different trade-offs and remain independently reviewable.
 
@@ -38,7 +42,7 @@ npm run bench -- --version 0.56.0 --output results/0.56.0.json
 
 # Opt in to semantic retrieval for this isolated fixture project.
 # This downloads/verifies the global model, embeds the corpus, and checks hybrid readiness.
-npm run bench -- --version 0.59.0 --semantic --output results/0.59.0-semantic.json
+npm run bench -- --version 0.60.0 --semantic --output results/0.60.0-semantic.json
 ```
 
 Release installations are cached under ignored `.cache/` directories. Results record the package's resolved version.
